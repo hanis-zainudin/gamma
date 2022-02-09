@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>FSKSM E-Learning Site</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/logo-2.png" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />	
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+				
+	</head>
+	<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+    	<!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        	<div class="container px-7">
+                    <a class="navbar-brand" href="home.html" style="font-size: 20px">
+						<img src="assets/logo-2.png" alt="logo" style="width: 55px" >  FSKSM E-Learning</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="sessem.html">Session & Semester</a></li>
+							<li class="nav-item"><a class="nav-link" href="curriculum.html">Curriculum</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="course.html">Course</a></li>
+                            <li class="nav-item"><a class="nav-link" href="lecturer.html">Lecturer</a></li>
+							<li class="nav-item"><a class="nav-link" href="student.html">Student</a></li>
+							<li class="nav-item"><a class="nav-link" href="space.html">Space</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="timetable.html">Timetable</a></li>
+                                    <li><a class="dropdown-item" href="user.html">Logout</a></li>
+                                </ul>
+                            </li>
+                    </div>
+                </div>
+            </nav>
+		    <!-- Page content-->
+			<section class="breadcrumbs">
+				<div class="container">
+					<ol>
+						<li>FSKSM</li>
+						<li>Course</li>
+					</ol>
+					<h3>List of Course</h3>
+				</div>
+			</section>
+			<section class="inner-page">
+			<div class="container" data-aos="fade-up">	
+				<section class="py-5" ng-app="sessem">
+					<div class="container" ng-controller="listSessem">
+						<div class="row-cols-lg-auto justify-content-center">
+							<div class="col">
+							<div class="row-cols-lg-auto input-group mb-3">
+								<span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+								<div class="col-7">
+								<input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1" ng-model="search" ng-change="applyFilter()">
+								</div>
+							</div>
+							<!-- Content-->
+								<div class="table-responsive-md justify-content-center align-items-center">
+									<table class="table table-bordered table-hover">
+										<thead class="table-dark">
+											<tr>
+											  <th class="text-center" scope="col">Course Code</th>
+											  <th class="text-center" scope="col">Course Name</th>
+											  <th class="text-center" scope="col">Sections</th>
+											  <th class="text-center" scope="col">Students</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="data" ng-repeat="item in page_data">
+												<td class="session text-center">{{ item.kod_subjek }}</td>
+												<td class="semester">{{ item.nama_subjek }}</td>
+												<td class="dstart text-center">{{ item.bil_seksyen }}</td>
+												<td class="dend text-center">{{ item.bil_pelajar }}</td>
+											</tr>
+										</tbody>
+									</table>
+
+								<div class="row">&nbsp;</div>
+								<div class="row justify-content-center" style="background-color:white;">
+									<div class="col">
+										<div class="input-group mb-3 justify-content-end">
+											<span class="input-group-text" id="basic-addon1">Rows/Page:</span>
+											<input type="text" class="" placeholder="page_rows" aria-label="page_rows"
+												aria-describedby="basic-addon1" ng-model="page_rows"
+												style="width: 50px; border:1px solid lightgrey; text-align: center;">
+										</div>
+									</div>
+									<div class="col">
+										<button class="btn"><i class="bi bi-chevron-left" ng-click="prevPage()"></i></button>
+										&nbsp; {{page_no}} / {{page_total}} &nbsp;
+										<button class="btn"><i class="bi bi-chevron-right" ng-click="nextPage()"></i></button>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+				</section>
+		</main>
+
+      <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">&copy; 2022 Gamma. All Right Reserved</div></div>
+                    <div class="col-auto">
+						<a class="link-light small" href="mailto:ttms@fc.utm.my">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+		
+    </body>
+</html>
+
+ <script>
+
+    // Create Angular JS app. instance
+    var app = angular.module('sessem', []);
+
+    // Register controller 
+    app.controller(
+        'listSessem',
+        function ($scope, $http) {
+            $scope.data; // JSON array instance from JSON Web service
+            $scope.page_data; // current page array data sliced from $scope.data 
+            $scope.page_no = 1; // current page number
+            $scope.page_rows = 10; // number of rows per-page
+            $scope.page_total; // number of available pages
+            $scope.pages; // number of page array
+
+            $scope.search;
+            $scope.data_filtered;
+
+            var ajax = $http({
+                method: "GET",
+                url: "http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=subjek_seksyen&sesi=2021/2022&semester=1"
+            });
+
+            ajax.then(
+                function success(res) { ajaxSuccess(res) },
+                function error(res) { ajaxError(res) }
+            );
+
+            function ajaxSuccess(res) {
+                //console.log(res.data);
+                $scope.data = res.data;
+                $scope.applyFilter();
+            }
+
+            function ajaxError(res) {
+                //console.log(res);
+                alert("AJAX connection error!");
+            }
+
+            // Watch and react on page_rows value changes
+            $scope.$watch('page_rows', function () {
+                if ($scope.page_rows < 1) { $scope.page_rows = 1; }
+
+                if ($scope.data && $scope.page_rows > 0) {
+                    console.log("watch - " + $scope.page_rows);
+                    countPage();
+                    $scope.goPage($scope.page_no);
+                    //$scope.goPage($scope.page_no);
+                }
+            });
+            
+            // Call goPage() function to view previous page
+            $scope.prevPage = function () {
+                if ($scope.page_no > 1) {
+                    console.log("prevPage()");
+                    $scope.page_no--;
+                    $scope.goPage($scope.page_no);
+                }
+            }
+            
+            // Call goPage() function to view next page
+            $scope.nextPage = function () {
+                if ($scope.page_no < $scope.page_total) {
+                    console.log("nextPage()");
+                    $scope.page_no++
+                    $scope.goPage($scope.page_no);
+                }
+            }
+
+            // Function to handle pagination number click
+            $scope.goPage = function (pnumber) {
+                console.log("Go to page " + pnumber);
+
+                $scope.page_no = pnumber;
+
+                // 1st page with 10 items per-page: idx_start = 0, idx_end = 9
+                // 2nd page with 10 items per-page: idx_start = 10, idx_end = 19
+                // 3rd page with 10 items per-page: idx_start = 20, idx_end = 29
+                var idx_start = $scope.page_rows * ($scope.page_no - 1);
+                var idx_end = idx_start + parseInt($scope.page_rows) - 1;
+                console.log("index range = " + idx_start + " - " + idx_end);
+
+                if ($scope.search != "") {
+                    console.log("Need to filter list first! - goPage");
+                    $scope.page_data = $scope.data_filtered.slice(idx_start, idx_end + 1);
+                } else {
+                    $scope.page_data = $scope.data.slice(idx_start, idx_end + 1);
+                }
+
+                //console.log($("#p" + pnumber).css('color')); // #0056b3
+                $(".pnumber").css('color', '#63aaf7');
+                $("#p" + pnumber).css('color', 'orange')
+            }
+
+            // Count total pages ($scope.pages) needed based on  
+            // number of item per-page ($scope.page_rows)
+            function countPage() {
+                // Number of pages required to display each sub-list
+                if ($scope.search != "") {
+                    console.log("Need to filter list first! - countPage");
+                    $scope.page_total = Math.ceil($scope.data_filtered.length / $scope.page_rows);
+                } else { 
+                    $scope.page_total = Math.ceil($scope.data.length / $scope.page_rows);
+                }
+                
+                console.log("page_total = " + $scope.page_total);
+
+                // Generate array to list & display pagination numbers
+                $scope.pages = [];
+                for (var i = 0; i < $scope.page_total; i++) {
+                    $scope.pages.push(i + 1);
+                }
+            }
+            
+            $scope.applyFilter = function () {
+                console.log("Apply filter");
+                const regex = new RegExp($scope.search, 'i');
+                
+                $scope.data_filtered = $scope.data.filter(function (el) {
+                        
+                        if (el.kod_subjek.match(regex)) { return true; }
+                        if (el.nama_subjek.match(regex)) { return true; }
+                        return false;
+                });
+                console.log($scope.data);
+                console.log($scope.data_filtered);
+                
+                countPage();
+                $scope.goPage($scope.page_no);
+            }
+        }
+    );
+
+</script>

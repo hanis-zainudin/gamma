@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>FSKSM E-Learning Site</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/logo-2.png" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100" ng-app="ttapp">
+        <main class="flex-shrink-0" ng-controller="home">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" >
+                <div class="container px-7">
+                    <a class="navbar-brand" href="home.html" style="font-size: 20px">
+						<img src="assets/logo-2.png" alt="logo" style="width: 55px" >  FSKSM E-Learning</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="sessem.html">Session & Semester</a></li>
+							<li class="nav-item"><a class="nav-link" href="curriculum.html">Curriculum</a></li>
+                            <li class="nav-item"><a class="nav-link" href="course.html">Course</a></li>
+                            <li class="nav-item"><a class="nav-link" href="lecturer.html">Lecturer</a></li>
+							<li class="nav-item"><a class="nav-link" href="student.html">Student</a></li>
+							<li class="nav-item"><a class="nav-link" href="space.html">Space</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">User</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="timetable.html">Timetable</a></li>
+									<li><a class="dropdown-item" href="user.html">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav><br><br><br><br>
+            <!-- Page Content-->
+			<section class="py-5">
+              <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-start">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-black mb-2">FSKSM</h1><br>
+                                <p class="lead fw-normal text-black-50 mb-4">The main facilities provided are for the purpose of monitoring and managing schedules and the use of space for teaching/learning purposes and other activities related to the faculty.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</section>	
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">&copy; 2022 Gamma. All Right Reserved</div></div>
+                    <div class="col-auto">
+						<a class="link-light small" href="mailto:ttms@fc.utm.my">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+	<script>
+	var app = angular.module("ttapp", ["ngRoute"]);
+	app.controller(
+	"home", 
+	function ($scope,$http) {
+	$scope.doLogout = function() {
+                alert("Try to logout");
+                $scope.userLogout = true;
+                $scope.userLogin = false;
+                sessionStorage.clear();
+				window.location = "login-css.html";
+             }
+	}
+	);
+	
+	</script>
+</html>
